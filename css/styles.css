@@ -1,0 +1,368 @@
+html {
+	height: 100%;
+}
+
+body {
+	height: 100%;   
+	background: rgba(247,247,247,1);
+	background: -moz-radial-gradient(center, ellipse cover, rgba(247,247,247,1) 0%, rgba(246,246,246,1) 47%, rgba(180,180,180,1) 100%);
+	background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, rgba(247,247,247,1)), color-stop(47%, rgba(246,246,246,1)), color-stop(100%, rgba(180,180,180,1)));
+	background: -webkit-radial-gradient(center, ellipse cover, rgba(247,247,247,1) 0%, rgba(246,246,246,1) 47%, rgba(180,180,180,1) 100%);
+	background: -o-radial-gradient(center, ellipse cover, rgba(247,247,247,1) 0%, rgba(246,246,246,1) 47%, rgba(180,180,180,1) 100%);
+	background: -ms-radial-gradient(center, ellipse cover, rgba(247,247,247,1) 0%, rgba(246,246,246,1) 47%, rgba(180,180,180,1) 100%);
+	background: radial-gradient(ellipse at center, rgba(247,247,247,1) 0%, rgba(246,246,246,1) 47%, rgba(180,180,180,1) 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#ededed', GradientType=1 );
+    font-family: BlinkMacSystemFont,-apple-system,"Segoe UI",Roboto,Oxygen,Ubuntu,Cantarell,"Fira Sans","Droid Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+
+h1 {
+	text-align: center;
+	font-weight: normal;
+}
+
+aside {
+	width: 190px;
+	background: rgba(255, 255, 255, 0.5);
+	height: 100%;
+	position: fixed;
+	top: 0;
+	left: 0;
+	padding: 0 0 0 15px;
+	font-size: 16px;
+}
+
+aside a {
+	color: black;
+	text-decoration: none;
+}
+
+aside .content {
+	margin-top: 130px;
+}
+
+aside .left {
+	width: 30px;
+	float: left;
+	margin-right: 10px;
+	clear: left;
+	text-align: center;
+	margin-bottom: 8px;
+}
+
+aside .right {
+	width: 150px;
+	float: left;
+}
+
+aside .right a:hover {
+	text-decoration: underline;
+}
+
+main {
+	margin: 40px auto;
+}
+
+.machine {
+	margin: 0 auto;
+	width: 910px;
+	position: relative;
+}
+
+#staves {
+	border-left: 20px solid #232323;
+	border-right: 20px solid #232323;
+	border-radius: 3px;
+}
+
+.stave {
+	width: 100%;
+	height: 70px;
+	border: 1px solid #666;
+	background: #333;
+}
+
+.staveName {
+	font-family: "Abel", sans-serif;
+	float: right;
+	color: white;
+	margin: 20px 10px 0 0;
+	background: #111;
+	width: 80px;
+	padding: 3px 8px 3px 8px;
+	border-left: 2px solid #222222;
+	border-right: 2px solid #454545;
+	border-top: 2px solid #212121;
+	border-bottom: 2px solid #565656;
+}
+
+.noteContainer {
+	width: 95px;
+	height: 70px;
+	background: none;
+	float: left;
+}
+
+.transportContainer {
+	width: 100%;
+	height: 40px;
+	padding-top: 10px;
+	border: 1px solid #666;
+	background: #333;
+}
+
+.transport {
+	width: 95px;
+	height: 50px;
+	margin-left: 20px;
+	text-align: center;
+	left: 0;
+	z-index: 1;
+	position: absolute;
+}
+
+.transportOff {
+	width: 95px;
+	height: 60px;
+	text-align: center;
+	float: left;
+}
+
+.transportLight {
+	border-radius: 50%;
+	background-color: #001100;
+	width: 25px;
+	height: 25px;
+	margin: 0 auto;
+	position: relative;
+	border: 3px solid #222;
+}
+
+.transportLight:after {
+	content: '';
+	width: 4px;
+	height: 4px;
+	border-radius: 50%;
+	position: absolute;
+	background-color: rgba(255, 255, 255, 0.5);
+	top: 6px;
+	left: 6px;
+	box-shadow: 3px 4px 7px 8px rgba(0, 120, 0, 0.6);
+}
+
+.transportLightActive {
+	background-color: #00AA00;
+	box-shadow: 0px 0px 10px 5px rgba(0, 255, 0, 0.4);
+	border: 3px solid rgba(0, 120, 0, 1);
+}
+
+.transportLightActive:after {
+	background-color: rgba(255,255,255,1);
+	box-shadow: 4px 4px 6px 7px rgba(0, 255, 0, 1);
+}
+
+.note {
+	border-radius: 50%;
+	background-color: #220000;
+	width: 30px;
+	height: 30px;
+	position: relative;
+	cursor: pointer;
+	margin: 20px auto;
+	border: 3px solid #222;
+}
+
+.active {
+	background-color: #AA0000;
+	box-shadow: 0px 0px 10px 5px rgba(255, 0, 0, 0.4);
+	border: 3px solid rgba(120, 0, 0, 1);
+}
+
+.note:after {
+	content: '';
+	width: 4px;
+	height: 4px;
+	border-radius: 50%;
+	position: absolute;
+	background-color: rgba(255, 255, 255, 0.5);
+	top: 7px;
+	left: 7px;
+	box-shadow: 3px 4px 7px 9px rgba(180, 0, 0, 0.6);
+}
+
+.active:after {
+	background-color: rgba(255,255,255,1);
+	box-shadow: 4px 4px 6px 7px rgba(255, 0, 0, 1);
+}
+
+/* CONTROLS */
+
+.controls {
+	font-family: "Abel", sans-serif;
+	width: 100%;
+	padding: 15px 0 15px 0;
+	background: #333;
+	border-left: 1px solid #666;
+	border-right: 1px solid #666;
+}
+
+.controls::after { 
+	content: "";
+	display: block; 
+	height: 0; 
+	clear: both;
+}
+
+.bpmRange {
+	float: right;
+	margin-top: 5px;
+}
+
+.bpmTitle {
+	float: left;
+	color: white;
+	margin: 6px 8px 0 0;
+}
+
+.bpmOutput {
+	width: 30px;
+	margin: 6px 15px 0 8px;
+	color: white;
+	float: right;
+}
+
+/* BUTTONS */
+
+.buttons {
+	float: left;
+}
+
+a.button {
+	width: 130px;
+	text-align: center;
+	text-decoration: none;
+	border-radius: 4px;
+	cursor: pointer;
+	padding: 12px 0;
+	display: inline-block;
+	background: #7b7b8c;
+	box-shadow: 0 2px 4px rgba(255, 255, 255, 0.1) inset, 0 -15px 70px rgba(0, 0, 0, 0.45) inset, -2px -2px 5px rgba(0, 0, 0, 0.4);
+	color: #fff;
+	margin-left: 15px;
+	font-size: 16px;
+}
+
+.button:active {
+	box-shadow: 0 1px 5px rgba(255, 255, 255, 0.2) inset, 0 -15px 70px rgba(0, 0, 0, 0.3) inset, -2px 2px 2px rgba(0, 0, 0, 0.25), 0 10px 100px rgba(0, 0, 0, 0.2) inset;
+}
+
+/* RANGE INPUT */
+/* Styled with http://danielstern.ca/range.css/ */
+
+input[type=range] {
+	width: 16em;
+	-webkit-appearance: none;
+	margin: 8px 0 0 0;
+}
+
+input[type=range]:focus {
+	outline: none;
+}
+
+input[type=range]::-webkit-slider-runnable-track {
+	width: 100%;
+	height: 2.9px;
+	cursor: pointer;
+	box-shadow: 0px 0px 0px #000000, 0px 0px 0px #0d0d0d;
+	background: #606060;
+	border-radius: 20px;
+	border: 0.1px solid #010101;
+}
+
+input[type=range]::-webkit-slider-thumb {
+	box-shadow: 0 -2px 4px rgba(255, 255, 255, 0.6) inset, -2px -2px 5px rgba(0, 0, 0, 0.4);
+	background: #adadad;
+	border: 0px solid #000000;
+	height: 36px;
+	width: 16px;
+	border-radius: 2px;
+	cursor: pointer;
+	-webkit-appearance: none;
+	margin-top: -16.65px;
+}
+
+input[type=range]:focus::-webkit-slider-runnable-track {
+	background: #636363;
+}
+
+input[type=range]::-moz-range-track {
+	width: 100%;
+	height: 2.9px;
+	cursor: pointer;
+	box-shadow: 0px 0px 0px #000000, 0px 0px 0px #0d0d0d;
+	background: #606060;
+	border-radius: 20px;
+	border: 0.1px solid #010101;
+}
+
+input[type=range]::-moz-range-thumb {
+	box-shadow: 0 -2px 4px rgba(255, 255, 255, 0.6) inset, -2px -2px 5px rgba(0, 0, 0, 0.4);
+	background: #adadad;
+	border: 0px solid #000000;
+	height: 36px;
+	width: 16px;
+	border-radius: 3px;
+	cursor: pointer;
+}
+
+input[type=range]::-ms-track {
+	width: 100%;
+	height: 2.9px;
+	cursor: pointer;
+	background: transparent;
+	border-color: transparent;
+	color: transparent;
+}
+
+input[type=range]::-ms-fill-lower {
+	background: #5d5d5d;
+	border: 0.1px solid #010101;
+	border-radius: 40px;
+	box-shadow: 0px 0px 0px #000000, 0px 0px 0px #0d0d0d;
+}
+
+input[type=range]::-ms-fill-upper {
+	background: #606060;
+	border: 0.1px solid #010101;
+	border-radius: 40px;
+	box-shadow: 0px 0px 0px #000000, 0px 0px 0px #0d0d0d;
+}
+
+input[type=range]::-ms-thumb {
+	box-shadow: 0 -2px 4px rgba(255, 255, 255, 0.6) inset, -2px -2px 5px rgba(0, 0, 0, 0.4);
+	background: #adadad;
+	border: 0px solid #000000;
+	height: 36px;
+	width: 16px;
+	border-radius: 3px;
+	cursor: pointer;
+	height: 2.9px;
+}
+
+input[type=range]:focus::-ms-fill-lower {
+	background: #606060;
+}
+
+input[type=range]:focus::-ms-fill-upper {
+	background: #636363;
+}
+
+.credits {
+	width: 99%;
+	text-align: center;
+	position: absolute;
+	bottom: 10px;
+}
+
+.credits a {
+	color: black;
+}

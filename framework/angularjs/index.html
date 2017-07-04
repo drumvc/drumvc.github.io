@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+	<head>
+		<meta charset="UTF-8">
+		<title>DruMVC - AngularJS</title>
+		<link href='https://fonts.googleapis.com/css?family=Abel|Open+Sans' rel='stylesheet' type='text/css'>
+		<link rel="stylesheet" href="../../css/styles.css">
+	</head>
+	<body>
+		<h1>DRU<strong>MVC</strong> - AngularJS</h1>
+		<main>
+			<div class="machine">
+				<div id="staves">
+					<div ng-controller="StaveController as staves">
+						<div ng-repeat="stave in staves.staves">
+							<div class="stave">
+								<div class="staveName">{{stave.name}}</div>
+								<div ng-repeat="note in stave.notes">
+									<div class="noteContainer">
+										<div class="note" ng-click="staves.toggleNote(stave.pos, note.pos)" ng-class="{active:staves.noteIsActive(stave.pos, note.pos)}"></div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div ng-controller="TransportController">
+						<div class="transportContainer">
+							<div class="transportOff"><div class="transportLight"></div></div>
+							<div class="transportOff"><div class="transportLight"></div></div>
+							<div class="transportOff"><div class="transportLight"></div></div>
+							<div class="transportOff"><div class="transportLight"></div></div>
+							<div class="transportOff"><div class="transportLight"></div></div>
+							<div class="transportOff"><div class="transportLight"></div></div>
+							<div class="transportOff"><div class="transportLight"></div></div>
+							<div class="transportOff"><div class="transportLight"></div></div>
+							<div class="transport" ng-style="{'left':currentPos * 95 + 'px'}">
+								<div class="transportLight transportLightActive"></div>
+							</div>
+						</div>
+					</div>
+					<div class="controls" ng-controller="ControlsController as controls">
+						<div class="buttons">
+							<a class="button" ng-click="controls.togglePlay()">{{ controls.buttonText }}</a> 
+							<a class="button" ng-click="controls.clearPattern()">Clear</a> 
+						</div>
+						<div class="bpmRange">
+							<div class="bpmTitle">BPM</div>
+							<input type="range" min="1" max="420" step="1" ng-model="controls.bpm" ng-change="controls.newRange()">
+							<output for="bpm" class="bpmOutput">{{controls.bpm}}</output>
+						</div>
+					</div>
+				</div>
+			</div>
+		</main>
+		<script src="js/lib/angular.min.js"></script>
+		<script src="js/lib/howler.min.js"></script>
+	    <script src="js/app/app.js"></script>
+	    <script src="js/app/controllers/controlsController.js"></script>
+	    <script src="js/app/controllers/transportController.js"></script>
+	    <script src="js/app/controllers/staveController.js"></script>
+	    <script src="js/app/services/bpmService.js"></script>
+	    <script src="js/app/services/notesService.js"></script>
+	    <script src="js/config.js"></script>
+	    <script src="../../aside/aside.js"></script>
+	</body>
+</html>
