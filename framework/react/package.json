@@ -1,5 +1,6 @@
 {
   "name": "DruMVC-React",
+  "homepage": "./",
   "devDependencies": {
     "howler": "^2.0.2",
     "react-scripts": "1.0.7"
