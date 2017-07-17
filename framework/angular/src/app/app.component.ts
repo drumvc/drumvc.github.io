@@ -6,18 +6,9 @@ declare const Howl:any;
 
 @Component({
   selector: 'app-root',
-  template: `
-	<div class="machine">
-		<div id="staves">
-			<staves></staves>
-			<transport [pos]="transportPos"></transport>
-			<controls [bpm]="bpm" [playing]="playing" (togglePlay)="togglePlay($event)" (clearPattern)="clearPattern($event)" (updateBpm)="updateBpm($event)"></controls>
-		</div>
-	</div>
-  `,
+  templateUrl: './app.component.html',
   providers: [StavesService]
 })
-
 export class AppComponent implements OnInit, AfterContentChecked {
 
 	constructor(private stavesService: StavesService) {}
@@ -106,3 +97,4 @@ export class AppComponent implements OnInit, AfterContentChecked {
 		}
 	}
 }
+

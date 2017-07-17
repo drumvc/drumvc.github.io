@@ -56,7 +56,9 @@ const STAVES: Stave[] = [
 
 @Injectable()
 export class StavesService {
-	getStaves(): Stave[] {
+
+  getStaves(): Stave[] {
 		return STAVES;
 	}
+
 }

@@ -1,18 +1,28 @@
-import { NgModule }      from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { NgModule } from '@angular/core';
 
-import { AppComponent }  from './app.component';
-import { ControlsComponent } from './controls.component';
-import { StavesComponent } from './staves.component';
-import { StaveComponent } from './stave.component';
-import { NoteComponent } from './note.component';
-import { TransportComponent } from './transport.component';
-import { TransportBlankComponent } from './transport-blank.component';
+import { AppComponent } from './app.component';
+import { ControlsComponent } from './controls/controls.component';
+import { NoteComponent } from './note/note.component';
+import { StaveComponent } from './stave/stave.component';
+import { StavesComponent } from './staves/staves.component';
+import { TransportBlankComponent } from './transport-blank/transport-blank.component';
+import { TransportComponent } from './transport/transport.component';
 
 @NgModule({
-  imports:      [ BrowserModule ],
-  declarations: [ AppComponent, ControlsComponent, StavesComponent, StaveComponent, NoteComponent, TransportComponent, TransportBlankComponent ],
-  bootstrap:    [ AppComponent ]
+  declarations: [
+    AppComponent,
+    ControlsComponent,
+    NoteComponent,
+    StaveComponent,
+    StavesComponent,
+    TransportBlankComponent,
+    TransportComponent,
+  ],
+  imports: [
+    BrowserModule
+  ],
+  providers: [],
+  bootstrap: [AppComponent]
 })
-
 export class AppModule { }

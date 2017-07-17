@@ -1,0 +1,7 @@
+<div class="controls">
+	<a href="#" class="button" (click)="toggle()">{{ playing ? 'Stop': 'Play' }}</a> 
+	<a href="#" class="button" (click)="clear()">Clear</a> 
+	<div class="bpmRange">
+		<div class="bpmTitle">BPM</div><input type="range" id="bpm" min="1" max="420" step="1" #ref (change)="changeBpm(ref.value)" /><output for="bpm" class="bpmOutput">{{ bpm }}</output>
+	</div>
+</div>

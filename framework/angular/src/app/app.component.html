@@ -1,0 +1,7 @@
+<div class="machine">
+  <div id="staves">
+    <staves></staves>
+    <transport [pos]="transportPos"></transport>
+    <controls [bpm]="bpm" [playing]="playing" (togglePlay)="togglePlay($event)" (clearPattern)="clearPattern($event)" (updateBpm)="updateBpm($event)"></controls>
+  </div>
+</div>
