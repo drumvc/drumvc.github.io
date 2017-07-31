@@ -2,17 +2,15 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Slider from './Slider';
 
-class Controls extends React.Component {
-	render() {
-		const playButtonText = this.props.playing ? 'Stop' : 'Play';
-		return (
-			<div className="controls">
-				<a href="#" className="button" onClick={this.props.togglePlay}>{playButtonText}</a> 
-				<a href="#" className="button" onClick={this.props.clearPattern}>Clear</a> 
-				<Slider bpm={this.props.bpm} handleChange={this.props.handleChange}/>
-			</div>
-		)
-	}
+const Controls = (props) => {
+	const playButtonText = props.playing ? 'Stop' : 'Play';
+	return (
+		<div className="controls">
+			<a href="#" className="button" onClick={props.togglePlay}>{playButtonText}</a> 
+			<a href="#" className="button" onClick={props.clearPattern}>Clear</a> 
+			<Slider bpm={props.bpm} handleChange={props.handleChange}/>
+		</div>
+	)
 }
 
 Controls.propTypes = {

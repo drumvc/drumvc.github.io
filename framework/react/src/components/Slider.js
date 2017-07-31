@@ -1,17 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-class Slider extends React.Component {
-	render() {
-		return (
-			<div className="bpmRange">
-				<div className="bpmTitle">BPM</div>
-				<input type="range" id="bpm" min="1" max="420" step="1" defaultValue={this.props.bpm} onChange={this.props.handleChange} />
-				<output htmlFor="bpm" className="bpmOutput">{ this.props.bpm }</output>
-			</div>
-		)
-	}
-}
+const Slider = (props) => (
+	<div className="bpmRange">
+		<div className="bpmTitle">BPM</div>
+		<input type="range" id="bpm" min="1" max="420" step="1" defaultValue={props.bpm} onChange={props.handleChange} />
+		<output htmlFor="bpm" className="bpmOutput">{ props.bpm }</output>
+	</div>
+)
 
 Slider.propTypes = {
 	bpm: PropTypes.number.isRequired,

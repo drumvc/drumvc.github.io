@@ -2,22 +2,22 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Note from './Note';
 
-class Stave extends React.Component {
-
-	render() {
-		let that = this;
-		return (
-			<div className="stave">
-				<div className="staveName">{this.props.name}</div>
-				{
-					this.props.notes.map(function(note, index) {
-						return <Note key={index} stave={that.props.id} transportPos={that.props.transportPos} pos={note.pos} active={note.active} toggleActive={that.props.toggleActive} />
-					})
-				}
-			</div>
-		)
-	}
-}
+const Stave = (props) => (
+	<div className="stave">
+		<div className="staveName">{props.name}</div>
+		{
+			props.notes.map(function(note, index) {
+				return <Note 
+							key={index} 
+							stave={props.id} 
+							transportPos={props.transportPos} 
+							pos={note.pos} 
+							active={note.active} 
+							toggleActive={props.toggleActive} />
+			})
+		}
+	</div>
+)
 
 Stave.propTypes = {
 	id: PropTypes.number.isRequired,
