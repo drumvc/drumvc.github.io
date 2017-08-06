@@ -2,23 +2,33 @@ import { combineReducers } from 'redux';
 
 const audioPath = '../../../audio/';
 
-const controls = (state = { playing: false, bpm: 220 }, action) => {
+const controls = (state = { playing: false, bpm: 220, transportPos: 0 }, action) => {
     switch (action.type) {
         case 'TOGGLE_PLAY':
-            return Object.assign({}, state, {
-                playing: !state.playing
-            });
+					return Object.assign({}, state, {
+					  playing: !state.playing
+					});
         case 'CHANGE_BPM': {
-				    return Object.assign({}, state, {
-				        bpm: action.bpm
-				    });
+					return Object.assign({}, state, {
+					  bpm: action.bpm
+					});
+				}
+				case 'ADVANCE_POS': {
+					let currentPos = state.transportPos;
+					currentPos++;
+					if (currentPos > 7) {
+						currentPos = 0;
+					}
+					return Object.assign({}, state, {
+						transportPos: currentPos
+					});
 				}
         default:
-            return state;
+          return state;
     }
 }
 
-const drums = (state = {
+const staves = (state = {
 		staves: [
 				{
 					'id': 0,
@@ -69,18 +79,26 @@ const drums = (state = {
 	}, action) => {
 	switch (action.type) {
       case 'TOGGLE_NOTE':
-          let staves = [...state.staves];
-          let note = staves[action.row]['notes'][action.col];
-          let active = note.active;
-          staves[action.row]['notes'][action.col]['active'] = !active;
-          return Object.assign({}, state, { staves });
+				var staves = [...state.staves];
+				let note = staves[action.row]['notes'][action.col];
+				let active = note.active;
+				staves[action.row]['notes'][action.col]['active'] = !active;
+				return Object.assign({}, state, { staves });
+      case 'CLEAR_PATTERN':
+        var staves = [...state.staves];
+        for (var stave of staves) {
+					for (var note of stave.notes) {
+						note.active = false;
+					}
+				}
+				return Object.assign({}, state, { staves });
       default:
-          return state;
+        return state;
   }
 }
 
 const reducer = combineReducers({
-    controls, drums
+    controls, staves
 });
 
 export default reducer;

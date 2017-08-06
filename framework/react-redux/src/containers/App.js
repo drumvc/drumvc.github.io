@@ -3,7 +3,7 @@ import Controls from '../components/Controls';
 import Staves from '../components/Staves';
 import Transport from '../components/Transport';
 import { connect } from 'react-redux';
-import { togglePlay, changeBpm, toggleNote } from '../actions';
+import { togglePlay, clearPattern, changeBpm, toggleNote, advancePos } from '../actions';
 import Howler from 'howler';
 const { Howl } = Howler;
 
@@ -11,65 +11,11 @@ class App extends React.Component {
 
 	constructor() {
 		super();
-
-		let audioPath = '../../../audio/';
-
-		this.state = {
-			transportPos: 0,
-			staves: [
-				{
-					'id': 1,
-					'name': 'Kick',
-					'sample': audioPath + 'kick.wav',
-					'notes': [
-						{'pos': 0, 'active': false},
-						{'pos': 1, 'active': false},
-						{'pos': 2, 'active': false},
-						{'pos': 3, 'active': false},
-						{'pos': 4, 'active': false},
-						{'pos': 5, 'active': false},
-						{'pos': 6, 'active': false},
-						{'pos': 7, 'active': false}
-					]
-				},
-				{
-					'id': 2,
-					'name': 'Snare',
-					'sample': audioPath + 'snare.wav',
-					'notes': [
-						{'pos': 0, 'active': false},
-						{'pos': 1, 'active': false},
-						{'pos': 2, 'active': false},
-						{'pos': 3, 'active': false},
-						{'pos': 4, 'active': false},
-						{'pos': 5, 'active': false},
-						{'pos': 6, 'active': false},
-						{'pos': 7, 'active': false}
-					]
-				},
-				{
-					'id': 3,
-					'name': 'Hihat',
-					'sample': audioPath + 'hihat.wav',
-					'notes': [
-						{'pos': 0, 'active': false},
-						{'pos': 1, 'active': false},
-						{'pos': 2, 'active': false},
-						{'pos': 3, 'active': false},
-						{'pos': 4, 'active': false},
-						{'pos': 5, 'active': false},
-						{'pos': 6, 'active': false},
-						{'pos': 7, 'active': false}
-					]
-				}
-			]
-		}
 		this.tick = this.tick.bind(this);
 		this.checkNote = this.checkNote.bind(this);
 		this.playSample = this.playSample.bind(this);
 		this.togglePlay = this.togglePlay.bind(this);
 		this.changeTempo = this.changeTempo.bind(this);
-		this.clearPattern = this.clearPattern.bind(this);
 	}
 
 	componentWillReceiveProps(nextProps, prevProps) {
@@ -85,35 +31,13 @@ class App extends React.Component {
 		clearInterval(this.timerId);
 	}
 
-	componentWillMount() {
-		let staves = this.props.staves;
-		for (var stave of staves) {
-			let localStorageRef = localStorage.getItem('rb-pattern-' + stave.id);
-			if (localStorageRef) {
-				stave.notes = JSON.parse(localStorageRef);
-			}
-		}
-	}
-
-	componentWillUpdate(nextProps, nextState) {
-		let staves = nextState.staves;
-		for (var stave of staves) {
-			localStorage.setItem('rb-pattern-' + stave.id, JSON.stringify(stave.notes));
-		}
-	}
-
 	tick() {
-		let transportPos = this.state.transportPos;
-		transportPos++;
-		if (transportPos > 7) {
-			transportPos = 0;
-		}
-		this.setState({ transportPos: transportPos });
+		this.props.advancePos();
 		this.checkNote();
 	}
 
 	checkNote() {
-		let transportPos = this.state.transportPos;
+		let transportPos = this.props.transportPos;
 		let that = this;
 		for (var stave of this.props.staves) {
 			for (var note of stave.notes) {
@@ -156,23 +80,13 @@ class App extends React.Component {
 		}
 	}
 
-	clearPattern() {
-		let staves = this.state.staves;
-		for (var stave of staves) {
-			for (var note of stave.notes) {
-				note.active = false;
-			}
-		}
-		this.setState({ staves: staves });
-	}
-
   	render() {
 	    return (
 			<div className="machine">
 				<div id="staves">
-				    <Staves transportPos={this.state.transportPos} staves={this.props.staves} toggleActive={this.props.toggleNote}/>
-				    <Transport pos={this.state.transportPos}/>
-				    <Controls bpm={this.props.bpm} handleChange={this.props.changeBpm} togglePlay={this.props.togglePlay} playing={this.props.playing} clearPattern={this.clearPattern} />
+				    <Staves transportPos={this.props.transportPos} staves={this.props.staves} toggleActive={this.props.toggleNote}/>
+				    <Transport pos={this.props.transportPos}/>
+				    <Controls bpm={this.props.bpm} handleChange={this.props.changeBpm} togglePlay={this.props.togglePlay} playing={this.props.playing} clearPattern={this.props.clearPattern} />
 				</div>
 			</div>
 	    );
@@ -183,7 +97,8 @@ const mapStateToProps = (state, ownProps) => {
     return {
         playing: state.controls.playing,
         bpm: state.controls.bpm,
-        staves: state.drums.staves
+        transportPos: state.controls.transportPos,
+        staves: state.staves.staves
     };
 };
 
@@ -192,11 +107,17 @@ const mapDispatchToProps = (dispatch) => {
         togglePlay: () => {
             dispatch(togglePlay());
         },
+        clearPattern: () => {
+        	dispatch(clearPattern());
+        },
 	    changeBpm: (bpm) => {
 	        dispatch(changeBpm(bpm));
 	    },
 	    toggleNote: (row, col) => {
 		    dispatch(toggleNote(row, col));
+		},
+		advancePos: () => {
+			dispatch(advancePos());
 		}
     };
 };
