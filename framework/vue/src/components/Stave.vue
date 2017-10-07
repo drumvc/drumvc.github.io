@@ -6,15 +6,15 @@
 </template>
 
 <script>
-	import Note from './Note.vue';
+import Note from './Note.vue';
 
-	export default {
-		props: ['name', 'notes'],
-		components: { Note },
-		methods: {
-			toggleNote(note) {
-				this.$emit('toggleNote', note);
-			}
+export default {
+	props: ['name', 'notes'],
+	components: { Note },
+	methods: {
+		toggleNote(note) {
+			this.$emit('toggleNote', note);
 		}
 	}
+}
 </script>

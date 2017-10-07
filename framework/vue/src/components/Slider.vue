@@ -7,17 +7,17 @@
 </template>
 
 <script>
-	export default {
-		props: ['bpm'],
-		data() {
-			return {
-				rangeValue: this.bpm
-			}
-		}, 
-		methods: {
-			changeBpm() {
-				this.$emit('changeBpm', this.rangeValue);
-			}
+export default {
+	props: ['bpm'],
+	data() {
+		return {
+			rangeValue: this.bpm
+		}
+	},
+	methods: {
+		changeBpm() {
+			this.$emit('changeBpm', this.rangeValue);
 		}
 	}
+}
 </script>
