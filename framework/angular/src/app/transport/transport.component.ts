@@ -1,11 +1,9 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input } from "@angular/core";
 
 @Component({
-  selector: 'transport',
-  templateUrl: './transport.component.html',
+  selector: "transport",
+  templateUrl: "./transport.component.html"
 })
 export class TransportComponent {
-
   @Input() pos: number;
-
 }

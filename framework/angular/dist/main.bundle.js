@@ -55,7 +55,7 @@ var AppComponent = (function () {
         this.getStaves();
         for (var _i = 0, _a = this.staves; _i < _a.length; _i++) {
             var stave = _a[_i];
-            var localStorageRef = localStorage.getItem('ag-pattern-' + stave.id);
+            var localStorageRef = localStorage.getItem("ag-pattern-" + stave.id);
             if (localStorageRef) {
                 stave.notes = JSON.parse(localStorageRef);
             }
@@ -64,7 +64,7 @@ var AppComponent = (function () {
     AppComponent.prototype.ngAfterContentChecked = function () {
         for (var _i = 0, _a = this.staves; _i < _a.length; _i++) {
             var stave = _a[_i];
-            localStorage.setItem('ag-pattern-' + stave.id, JSON.stringify(stave.notes));
+            localStorage.setItem("ag-pattern-" + stave.id, JSON.stringify(stave.notes));
         }
     };
     AppComponent.prototype.setTimer = function () {
@@ -127,7 +127,7 @@ var AppComponent = (function () {
 }());
 AppComponent = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_0" /* Component */])({
-        selector: 'app-root',
+        selector: "app-root",
         template: __webpack_require__("../../../../../src/app/app.component.html"),
         providers: [__WEBPACK_IMPORTED_MODULE_1__staves_service__["a" /* StavesService */]]
     }),
@@ -182,11 +182,9 @@ AppModule = __decorate([
             __WEBPACK_IMPORTED_MODULE_5__stave_stave_component__["a" /* StaveComponent */],
             __WEBPACK_IMPORTED_MODULE_6__staves_staves_component__["a" /* StavesComponent */],
             __WEBPACK_IMPORTED_MODULE_7__transport_blank_transport_blank_component__["a" /* TransportBlankComponent */],
-            __WEBPACK_IMPORTED_MODULE_8__transport_transport_component__["a" /* TransportComponent */],
+            __WEBPACK_IMPORTED_MODULE_8__transport_transport_component__["a" /* TransportComponent */]
         ],
-        imports: [
-            __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */]
-        ],
+        imports: [__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */]],
         providers: [],
         bootstrap: [__WEBPACK_IMPORTED_MODULE_2__app_component__["a" /* AppComponent */]]
     })
@@ -258,8 +256,8 @@ __decorate([
 ], ControlsComponent.prototype, "updateBpm", void 0);
 ControlsComponent = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_0" /* Component */])({
-        selector: 'controls',
-        template: __webpack_require__("../../../../../src/app/controls/controls.component.html"),
+        selector: "controls",
+        template: __webpack_require__("../../../../../src/app/controls/controls.component.html")
     })
 ], ControlsComponent);
 
@@ -302,8 +300,8 @@ __decorate([
 ], NoteComponent.prototype, "active", void 0);
 NoteComponent = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_0" /* Component */])({
-        selector: 'note',
-        template: __webpack_require__("../../../../../src/app/note/note.component.html"),
+        selector: "note",
+        template: __webpack_require__("../../../../../src/app/note/note.component.html")
     })
 ], NoteComponent);
 
@@ -352,8 +350,8 @@ __decorate([
 ], StaveComponent.prototype, "notes", void 0);
 StaveComponent = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_0" /* Component */])({
-        selector: 'stave',
-        template: __webpack_require__("../../../../../src/app/stave/stave.component.html"),
+        selector: "stave",
+        template: __webpack_require__("../../../../../src/app/stave/stave.component.html")
     })
 ], StaveComponent);
 
@@ -374,56 +372,56 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 
-var audioPath = '../../../audio/';
-var kick = audioPath + 'kick.wav';
-var snare = audioPath + 'snare.wav';
-var hihat = audioPath + 'hihat.wav';
+var audioPath = "../../../audio/";
+var kick = audioPath + "kick.wav";
+var snare = audioPath + "snare.wav";
+var hihat = audioPath + "hihat.wav";
 var STAVES = [
     {
         id: 1,
-        name: 'Kick',
+        name: "Kick",
         sample: kick,
         notes: [
-            { 'pos': 0, 'active': false },
-            { 'pos': 1, 'active': false },
-            { 'pos': 2, 'active': false },
-            { 'pos': 3, 'active': false },
-            { 'pos': 4, 'active': false },
-            { 'pos': 5, 'active': false },
-            { 'pos': 6, 'active': false },
-            { 'pos': 7, 'active': false }
+            { pos: 0, active: false },
+            { pos: 1, active: false },
+            { pos: 2, active: false },
+            { pos: 3, active: false },
+            { pos: 4, active: false },
+            { pos: 5, active: false },
+            { pos: 6, active: false },
+            { pos: 7, active: false }
         ]
     },
     {
         id: 2,
-        name: 'Snare',
+        name: "Snare",
         sample: snare,
         notes: [
-            { 'pos': 0, 'active': false },
-            { 'pos': 1, 'active': false },
-            { 'pos': 2, 'active': false },
-            { 'pos': 3, 'active': false },
-            { 'pos': 4, 'active': false },
-            { 'pos': 5, 'active': false },
-            { 'pos': 6, 'active': false },
-            { 'pos': 7, 'active': false }
+            { pos: 0, active: false },
+            { pos: 1, active: false },
+            { pos: 2, active: false },
+            { pos: 3, active: false },
+            { pos: 4, active: false },
+            { pos: 5, active: false },
+            { pos: 6, active: false },
+            { pos: 7, active: false }
         ]
     },
     {
         id: 3,
-        name: 'Hihat',
+        name: "Hihat",
         sample: hihat,
         notes: [
-            { 'pos': 0, 'active': false },
-            { 'pos': 1, 'active': false },
-            { 'pos': 2, 'active': false },
-            { 'pos': 3, 'active': false },
-            { 'pos': 4, 'active': false },
-            { 'pos': 5, 'active': false },
-            { 'pos': 6, 'active': false },
-            { 'pos': 7, 'active': false }
+            { pos: 0, active: false },
+            { pos: 1, active: false },
+            { pos: 2, active: false },
+            { pos: 3, active: false },
+            { pos: 4, active: false },
+            { pos: 5, active: false },
+            { pos: 6, active: false },
+            { pos: 7, active: false }
         ]
-    },
+    }
 ];
 var StavesService = (function () {
     function StavesService() {
@@ -480,7 +478,7 @@ var StavesComponent = (function () {
 }());
 StavesComponent = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_0" /* Component */])({
-        selector: 'staves',
+        selector: "staves",
         template: __webpack_require__("../../../../../src/app/staves/staves.component.html"),
         providers: [__WEBPACK_IMPORTED_MODULE_1__staves_service__["a" /* StavesService */]]
     }),
@@ -519,8 +517,8 @@ var TransportBlankComponent = (function () {
 }());
 TransportBlankComponent = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_0" /* Component */])({
-        selector: 'transport-blank',
-        template: __webpack_require__("../../../../../src/app/transport-blank/transport-blank.component.html"),
+        selector: "transport-blank",
+        template: __webpack_require__("../../../../../src/app/transport-blank/transport-blank.component.html")
     })
 ], TransportBlankComponent);
 
@@ -562,8 +560,8 @@ __decorate([
 ], TransportComponent.prototype, "pos", void 0);
 TransportComponent = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_0" /* Component */])({
-        selector: 'transport',
-        template: __webpack_require__("../../../../../src/app/transport/transport.component.html"),
+        selector: "transport",
+        template: __webpack_require__("../../../../../src/app/transport/transport.component.html")
     })
 ], TransportComponent);
 

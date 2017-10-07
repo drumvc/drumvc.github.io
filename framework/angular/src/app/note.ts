@@ -1,4 +1,4 @@
 export class Note {
-	pos: number;
-	active: boolean;
+  pos: number;
+  active: boolean;
 }

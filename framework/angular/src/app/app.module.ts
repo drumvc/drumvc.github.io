@@ -1,13 +1,13 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { BrowserModule } from "@angular/platform-browser";
+import { NgModule } from "@angular/core";
 
-import { AppComponent } from './app.component';
-import { ControlsComponent } from './controls/controls.component';
-import { NoteComponent } from './note/note.component';
-import { StaveComponent } from './stave/stave.component';
-import { StavesComponent } from './staves/staves.component';
-import { TransportBlankComponent } from './transport-blank/transport-blank.component';
-import { TransportComponent } from './transport/transport.component';
+import { AppComponent } from "./app.component";
+import { ControlsComponent } from "./controls/controls.component";
+import { NoteComponent } from "./note/note.component";
+import { StaveComponent } from "./stave/stave.component";
+import { StavesComponent } from "./staves/staves.component";
+import { TransportBlankComponent } from "./transport-blank/transport-blank.component";
+import { TransportComponent } from "./transport/transport.component";
 
 @NgModule({
   declarations: [
@@ -17,12 +17,10 @@ import { TransportComponent } from './transport/transport.component';
     StaveComponent,
     StavesComponent,
     TransportBlankComponent,
-    TransportComponent,
+    TransportComponent
   ],
-  imports: [
-    BrowserModule
-  ],
+  imports: [BrowserModule],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}

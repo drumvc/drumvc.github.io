@@ -1,9 +1,7 @@
-import { Component } from '@angular/core';
+import { Component } from "@angular/core";
 
 @Component({
-  selector: 'transport-blank',
-  templateUrl: './transport-blank.component.html',
+  selector: "transport-blank",
+  templateUrl: "./transport-blank.component.html"
 })
-export class TransportBlankComponent {
-
-}
+export class TransportBlankComponent {}
